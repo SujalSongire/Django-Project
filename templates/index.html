@@ -3,7 +3,7 @@
 {% load static %}
 
 <!-- Welcome Alert -->
-<div class="alert alert-primary alert-dismissible fade show" role="alert">
+<div class="alert alert-dark alert-dismissible fade show" role="alert">
   <strong>Welcome to TextUtils!</strong> You can do anything with your text here!
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
@@ -12,44 +12,41 @@
 
 <!-- Container for the form -->
 <div class="container mt-4">
-  <!-- Bootstrap Card for Form -->
-  <div class="card">
-    <div class="card-header bg-primary text-white">
-      <h5 class="mb-0">Please provide your text below</h5>
-    </div>
     <div class="card-body">
-      <form action='/analyze' method='post'> {% csrf_token %}
+        <form action='/analyze' method='post'> {% csrf_token %}
+            <div class="form-group">
+                <textarea class="form-control transparent-textarea"
+                          name='text'
+                          id="exampleFormControlTextarea1"
+                          rows="10"
+                          placeholder="Enter your text here..."></textarea>
+            </div>
 
-        <div class="form-group">
-          <textarea class="form-control" name='text' id="exampleFormControlTextarea1" rows="10" placeholder="Enter your text here..."></textarea>
-        </div>
+            <div class="form-group">
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" name="removepunc" class="custom-control-input" id="customSwitch1">
+                    <label class="custom-control-label" for="customSwitch1" style="color: white;">Remove Punctuations</label>
+                </div>
 
-        <div class="form-group">
-          <div class="custom-control custom-switch">
-            <input type="checkbox" name="removepunc" class="custom-control-input" id="customSwitch1">
-            <label class="custom-control-label" for="customSwitch1">Remove Punctuations</label>
-          </div>
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" name="fullcaps" class="custom-control-input" id="customSwitch2">
+                    <label class="custom-control-label" for="customSwitch2" style="color: white;">UPPERCASE</label>
+                </div>
 
-          <div class="custom-control custom-switch">
-            <input type="checkbox" name="fullcaps" class="custom-control-input" id="customSwitch2">
-            <label class="custom-control-label" for="customSwitch2">UPPERCASE</label>
-          </div>
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" name="NewLineRemover" class="custom-control-input" id="customSwitch3">
+                    <label class="custom-control-label" for="customSwitch3" style="color: white;">Remove New Lines</label>
+                </div>
 
-          <div class="custom-control custom-switch">
-            <input type="checkbox" name="NewLineRemover" class="custom-control-input" id="customSwitch3">
-            <label class="custom-control-label" for="customSwitch3">Remove New Lines</label>
-          </div>
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" name="ExtraSpaceRemover" class="custom-control-input" id="customSwitch4">
+                    <label class="custom-control-label" for="customSwitch4" style="color: white;">Remove Extra Spaces</label>
+                </div>
+            </div>
 
-          <div class="custom-control custom-switch">
-            <input type="checkbox" name="ExtraSpaceRemover" class="custom-control-input" id="customSwitch4">
-            <label class="custom-control-label" for="customSwitch4">Remove Extra Spaces</label>
-          </div>
-        </div>
-
-        <button type="submit" class="btn btn-primary">Analyze Text</button>
-      </form>
+            <button type="submit" class="btn btn-light">Analyze Text</button>
+        </form>
     </div>
-  </div>
 </div>
 
 <!-- Optional JavaScript -->
